@@ -1,151 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="John Doe Resume – Full Stack Developer">
+<meta charset="UTF-8" />
+<title>Cursor – Developer Tool</title>
 
-<title>John Doe | Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* NAV */
+
+.nav {
+  background: #020617;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.nav-cta {
+  background: #6366f1;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+  background: #020617;
+  color: #fff;
+  padding: 100px 0 140px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #c7d2fe;
+  max-width: 480px;
+}
+
+.hero-buttons {
+  margin-top: 32px;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: #6366f1;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 40px 80px rgba(0,0,0,.4);
+}
+
+/* LOGOS */
+
+.logos {
+  padding: 60px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: space-between;
+  opacity: .6;
+}
+
+.logo-row img {
+  height: 28px;
+}
+
+/* FEATURES */
+
+.feature {
+  padding: 120px 0;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.feature h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.feature p {
+  color: #475569;
+  font-size: 16px;
+  max-width: 420px;
+}
+
+.feature img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.1);
+}
+
+/* CARDS */
+
+.cards {
+  background: #f8fafc;
+  padding: 120px 0;
+}
+
+.cards h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 60px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* TESTIMONIALS */
+
+.testimonials {
+  padding: 120px 0;
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.quote {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 28px;
+}
+
+/* USE CASES */
+
+.use-cases {
+  background: #020617;
+  color: #fff;
+  padding: 120px 0;
+}
+
+.use-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.use-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* CHANGELOG */
+
+.changelog {
+  padding: 120px 0;
+}
+
+.update {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* TEAM */
+
+.team {
+  background: #f8fafc;
+  padding: 120px 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.team img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* FINAL CTA */
+
+.final-cta {
+  background: #020617;
+  color: #fff;
+  text-align: center;
+  padding: 120px 0;
+}
+
+.final-cta h2 {
+  font-size: 48px;
+  margin-bottom: 28px;
+}
+
+/* FOOTER */
+
+.footer {
+  background: #020617;
+  color: #cbd5f5;
+  padding: 80px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  font-size: 14px;
+}
+
+.footer h4 {
+  color: #fff;
+}
+</style>
 </head>
 
 <body>
 
-<header class="wrapper">
-  <h1>John Doe</h1>
-  <p class="subtitle">Full Stack Developer | Web Designer | Tech Enthusiast</p>
-</header>
-<hr>
+<!-- NAV -->
+<div class="nav">
+  <div class="container nav-inner">
+    <strong>cursor</strong>
+    <div class="nav-links">
+      <a href="#">Product</a>
+      <a href="#">Pricing</a>
+      <a href="#">Docs</a>
+      <a href="#">Blog</a>
+    </div>
+    <a class="nav-cta" href="#">Download</a>
+  </div>
+</div>
 
-<main class="wrapper">
-
-<section aria-labelledby="about">
-  <h2 id="about">About Me</h2>
-  <p>
-    I am a passionate developer with 5+ years of experience in building web applications.
-    I specialize in HTML, CSS, JavaScript, and backend technologies.
-  </p>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>The AI code editor<br>built for speed</h1>
+      <p>Write, refactor, and understand code faster with a modern editor designed for developers.</p>
+      <div class="hero-buttons">
+        <a class="primary-btn" href="#">Get Started</a>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200" />
+  </div>
 </section>
-<hr>
 
-<section aria-labelledby="skills">
-  <h2 id="skills">Skills</h2>
-  <ul class="skills">
-    <li>HTML5 & CSS3</li>
-    <li>JavaScript</li>
-    <li>React & Vue.js</li>
-    <li>Node.js & Express</li>
-    <li>MongoDB & MySQL</li>
-    <li>Git & GitHub</li>
-  </ul>
+<!-- LOGOS -->
+<section class="logos">
+  <div class="container logo-row">
+    <img src="https://dummyimage.com/120x40/000/fff&text=Stripe">
+    <img src="https://dummyimage.com/120x40/000/fff&text=OpenAI">
+    <img src="https://dummyimage.com/120x40/000/fff&text=Vercel">
+    <img src="https://dummyimage.com/120x40/000/fff&text=Shopify">
+    <img src="https://dummyimage.com/120x40/000/fff&text=Notion">
+  </div>
 </section>
-<hr>
 
-<section aria-labelledby="experience">
-  <h2 id="experience">Experience</h2>
-
-  <table border="1  ">
-    <thead>
-      <tr>
-        <th>Position</th>
-        <th>Company</th>
-        <th>Duration</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>Senior Developer</td>
-        <td>Tech Solutions Inc.</td>
-        <td><time datetime="2021">2021</time> – Present</td>
-      </tr>
-      <tr>
-        <td>Web Developer</td>
-        <td>Digital Innovations</td>
-        <td><time datetime="2019">2019</time> – <time datetime="2021">2021</time></td>
-      </tr>
-      <tr>
-        <td>Junior Developer</td>
-        <td>StartUp Co.</td>
-        <td><time datetime="2018">2018</time> – <time datetime="2019">2019</time></td>
-      </tr>
-    </tbody>
-  </table>
+<!-- FEATURES -->
+<section class="feature">
+  <div class="container feature-row">
+    <div>
+      <h2>Edit at the speed of thought</h2>
+      <p>Instant navigation, inline edits, and deep context across your entire codebase.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200">
+  </div>
 </section>
-<hr>
 
-<section aria-labelledby="projects">
-  <h2 id="projects">Projects</h2>
-
-  <article>
-    <h3>Project 1: E-Commerce Website</h3>
-    <p>
-      Built a fully functional e-commerce platform with product listings,
-      cart management, and payment integration.
-    </p>
-    <ul>
-      <li><strong>Technologies:</strong> React, Node.js, MongoDB</li>
-      <li><strong>Timeline:</strong> 6 months</li>
-    </ul>
-  </article>
-
-  <article>
-    <h3>Project 2: Blog Platform</h3>
-    <p>
-      Developed a blogging platform with user authentication and content management features.
-    </p>
-    <ul>
-      <li><strong>Technologies:</strong> HTML, CSS, JavaScript, Express</li>
-      <li><strong>Timeline:</strong> 3 months</li>
-    </ul>
-  </article>
+<section class="feature">
+  <div class="container feature-row">
+    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1200">
+    <div>
+      <h2>Refactor with confidence</h2>
+      <p>Large-scale changes become trivial with semantic understanding.</p>
+    </div>
+  </div>
 </section>
-<hr>
 
-<section aria-labelledby="education">
-  <h2 id="education">Education</h2>
-
-  <table border="2">
-    <thead>
-      <tr>
-        <th>Degree</th>
-        <th>Institution</th>
-        <th>Year</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>Bachelor in Computer Science</td>
-        <td>State University</td>
-        <td><time datetime="2018">2018</time></td>
-      </tr>
-      <tr>
-        <td>Web Development Bootcamp</td>
-        <td>Online Academy</td>
-        <td><time datetime="2017">2017</time></td>
-      </tr>
-    </tbody>
-  </table>
+<section class="feature">
+  <div class="container feature-row">
+    <div>
+      <h2>Understand any codebase</h2>
+      <p>Ask questions directly inside your editor and get precise answers.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200">
+  </div>
 </section>
-<hr>
 
-<section aria-labelledby="contact">
-  <h2 id="contact">Contact</h2>
-
-  <address>
-    <div>Email: <a href="mailto:john.doe@example.com">john.doe@example.com</a></div>
-    <div>Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a></div>
-    <div>Location: New York, USA</div>
-  </address>
+<!-- CARDS -->
+<section class="cards">
+  <div class="container">
+    <h2>Everything you need</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Codebase Search</h3><p>Jump anywhere instantly.</p></div>
+      <div class="card"><h3>Inline Edits</h3><p>Apply changes directly.</p></div>
+      <div class="card"><h3>Smart Autocomplete</h3><p>Context-aware suggestions.</p></div>
+    </div>
+  </div>
 </section>
-<hr>
 
-</main>
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container quote-grid">
+    <div class="quote">“Cursor replaced half my workflow.”<br><strong>Alex — Engineer</strong></div>
+    <div class="quote">“The fastest editor I’ve ever used.”<br><strong>Maya — Founder</strong></div>
+    <div class="quote">“Game changer for large codebases.”<br><strong>Sam — Tech Lead</strong></div>
+  </div>
+</section>
 
-<footer class="wrapper">
-  <p>&copy; <time datetime="2024">2024</time> John Doe. All rights reserved.</p>
+<!-- USE CASES -->
+<section class="use-cases">
+  <div class="container use-grid">
+    <div class="use-card">
+      <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=800">
+      Startup teams
+    </div>
+    <div class="use-card">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800">
+      Open source
+    </div>
+    <div class="use-card">
+      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800">
+      Enterprises
+    </div>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+<section class="changelog">
+  <div class="container">
+    <div class="update"><span>Jan 20, 2026</span><span>Improved indexing speed</span></div>
+    <div class="update"><span>Jan 05, 2026</span><span>New autocomplete engine</span></div>
+    <div class="update"><span>Dec 18, 2025</span><span>Workspace awareness</span></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="container team-grid">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200">
+    <div>
+      <h2>Built by developers</h2>
+      <p>We’re a small team obsessed with building the best coding experience.</p>
+      <a class="primary-btn" href="#">Join us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Start coding faster today</h2>
+    <a class="primary-btn" href="#">Download Cursor</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>cursor</strong>
+      <p>© 2026</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <p>Features</p>
+      <p>Pricing</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <p>Blog</p>
+      <p>Careers</p>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <p>Docs</p>
+      <p>Support</p>
+    </div>
+  </div>
 </footer>
-<hr>
 
 </body>
 </html>
