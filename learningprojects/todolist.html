@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To-do List</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 48px 20px;
+			font-family: Arial, sans-serif;
+			color: #1f2937;
+			background: linear-gradient(135deg, #eef2ff, #f8fafc);
+		}
+
+		body > div {
+			width: min(100%, 560px);
+			margin: 0 auto;
+		}
+
+		body > div:first-of-type {
+			display: flex;
+			gap: 12px;
+			padding: 24px;
+			border-radius: 16px 16px 0 0;
+			background: #ffffff;
+			box-shadow: 0 14px 35px rgba(15, 23, 42, 0.1);
+		}
+
+		body > div:last-of-type {
+			min-height: 180px;
+			padding: 0 24px 24px;
+			border-radius: 0 0 16px 16px;
+			background: #ffffff;
+			box-shadow: 0 14px 35px rgba(15, 23, 42, 0.1);
+		}
+
+		#todoInput {
+			min-width: 0;
+			flex: 1;
+			padding: 12px 14px;
+			border: 2px solid #e2e8f0;
+			border-radius: 9px;
+			font: inherit;
+			outline: none;
+			transition: border-color 0.2s, box-shadow 0.2s;
+		}
+
+		#todoInput:focus {
+			border-color: #6366f1;
+			box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+		}
+
+		#createTask {
+			padding: 12px 20px;
+			border: 0;
+			border-radius: 9px;
+			font: inherit;
+			font-weight: 700;
+			color: #ffffff;
+			background: #4f46e5;
+			cursor: pointer;
+			transition: background 0.2s, transform 0.2s;
+		}
+
+		#createTask:hover {
+			background: #4338ca;
+			transform: translateY(-1px);
+		}
+
+		#createTask:active {
+			transform: translateY(0);
+		}
+
+		#listOfTasks {
+			margin: 0;
+			padding-left: 36px;
+		}
+
+		#listOfTasks li {
+			margin-bottom: 10px;
+			padding: 13px 16px;
+			border-left: 4px solid #6366f1;
+			border-radius: 8px;
+			background: #f8fafc;
+			cursor: pointer;
+			word-break: break-word;
+			transition: background 0.2s, transform 0.2s;
+		}
+
+		#listOfTasks li:hover {
+			background: #eef2ff;
+			transform: translateX(3px);
+			text-decoration: line-through;
+		}
+
+		@media (max-width: 480px) {
+			body {
+				padding: 24px 12px;
+			}
+
+			body > div:first-of-type {
+				flex-direction: column;
+			}
+
+			#createTask {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div>
+	<input id="todoInput" type="text" placeholder="Your Next Task">
+	<button id="createTask">Create</button>
+	</div>
+	<div>
+    <ol id="listOfTasks">
+	</ol>
+	</div>
+	<script>
+	const todoInputRef=document.getElementById("todoInput");
+	const createTaskRef=document.getElementById("createTask");
+	const listOfTasksRef=document.getElementById("listOfTasks");
+
+	createTaskRef.addEventListener('click',function(){
+     	const value=todoInputRef.value;
+     	console.log(value);
+      
+     	const li= document.createElement("li"); //this was for <li></li>
+     	li.innerText  = value; // this was for <li>{value}</li>
+     	li.addEventListener('click', function(){
+     	  li.remove();
+     	});
+    
+    listOfTasksRef.appendChild(li);
+    listOfTasksRef='';
+	
+	});
+	</script>
+</body>
+</html>
